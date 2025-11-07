@@ -1,5 +1,7 @@
 import { cart } from "../database/cart.js";
 import { products } from "../database/db.js";
+
+
 renderCart();
 
 function renderCart() {
@@ -7,7 +9,7 @@ function renderCart() {
 
   cart.forEach((cartItem) => {
     const matchingProduct = products.find(
-      (product) => product.id === cartItem.id
+      (product) => product.id === cartItem.productId
     );
 
     if (!matchingProduct) return;
@@ -37,7 +39,7 @@ function renderCart() {
             </svg>
           </button>
           <div class="quantity-control">
-            <button class="minus">−</button>
+            <button class="minus">-</button>
             <span class="quantity">${cartItem.quantity}</span>
             <button class="plus">+</button>
           </div>
