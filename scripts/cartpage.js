@@ -9,7 +9,7 @@ function renderCart() {
 
   cart.forEach((cartItem) => {
     const matchingProduct = products.find(
-      (product) => product.id === cartItem.productId
+      (product) => product.id === cartItem.id || cartItem.productId
     );
 
     if (!matchingProduct) return;
