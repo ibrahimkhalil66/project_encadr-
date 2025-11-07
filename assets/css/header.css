@@ -32,7 +32,7 @@ nav {
     padding: 0rem 5rem;
     height: 100px;
     gap: 25%;
-    background-color: #0f0f10;
+    background-color: var(--bg-clr-black);
 
 
     img {
