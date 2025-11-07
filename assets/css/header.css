@@ -1,0 +1,79 @@
+:root {
+    --color-50: #f6f6f6;
+    --color-100: #e7e7e7;
+    --color-200: #d1d1d1;
+    --color-300: #b0b0b0;
+    --color-400: #888888;
+    --color-500: #6d6d6d;
+    --color-600: #5d5d5d;
+    --color-700: #4f4f4f;
+    --color-800: #454545;
+    --color-900: #353535;
+    --color-950: #262626;
+    --cl-header: #212122;
+    --cl-blue: #198dc9;
+    --cl-pr-blue : #00d8ff;
+
+    --br-main: .5rem;
+    --bg-clr-black: #111010;
+
+}
+
+* {
+    font-family: Sans-serif;
+}
+a {
+    text-decoration: none;
+}
+/* ----------------------------- NAVIGATION BAR ----------------------------- */
+nav {
+    display: flex;
+    align-items: center;
+    padding: 0rem 5rem;
+    height: 100px;
+    gap: 25%;
+    background-color: #0f0f10;
+
+
+    img {
+        width: 200px;
+    }
+
+
+
+}
+
+.links {
+    display: flex;
+    gap: 3rem;
+
+    a {
+        text-decoration: none;
+        color: #ffffff;
+        font-weight: bold;
+    }
+
+    a:hover {
+        color: var(--cl-pr-blue);
+    }
+
+}
+
+.cart-div {
+    display: flex;
+    text-decoration: none;
+    align-items: center;
+    gap: .5rem;
+
+    svg {
+        width: 1.5rem;
+        fill: var(--cl-pr-blue);
+    }
+
+    p {
+        color: var(--cl-pr-blue);
+        font-weight: bold;
+    }
+}
+
+

@@ -1,0 +1,163 @@
+:root {
+    --color-50: #f6f6f6;
+    --color-100: #e7e7e7;
+    --color-200: #d1d1d1;
+    --color-300: #b0b0b0;
+    --color-400: #888888;
+    --color-500: #6d6d6d;
+    --color-600: #5d5d5d;
+    --color-700: #4f4f4f;
+    --color-800: #454545;
+    --color-900: #353535;
+    --color-950: #262626;
+    --cl-header: #212122;
+    --cl-blue: #00d8ff;
+
+    --br-main: .5rem;
+    --bg-clr-black: #111010;
+
+}
+
+body {
+    background-color: var(--bg-clr-black);
+}
+
+* {
+    font-family: 'Poppins', sans-serif;
+}
+
+/* ----------------------------- NAVIGATION BAR ----------------------------- */
+nav {
+    display: flex;
+    align-items: center;
+    padding: 0rem 5rem;
+    height: 100px;
+    gap: 25%;
+
+
+    img {
+        width: 200px;
+    }
+
+
+
+}
+
+.links {
+    display: flex;
+    gap: 3rem;
+
+    a {
+        text-decoration: none;
+        color: #ffffff;
+        font-weight: bold;
+    }
+
+    a:hover {
+        color: var(--color-300);
+    }
+
+}
+
+a {
+    display: flex;
+    text-decoration: none;
+    align-items: center;
+    gap: .5rem;
+
+    svg {
+        width: 2rem;
+        fill: black;
+    }
+
+    svg:hover {
+        fill: #4f4f4f;
+    }
+
+    p {
+        color: black;
+        font-weight: bold;
+    }
+}
+
+
+/* ------------------------------ MAIN SECTION ------------------------------ */
+
+main {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding: 0rem 6rem;
+    gap: 10rem;
+}
+
+.left-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 0rem;
+
+
+    .welcome-para {
+        color: var(--cl-blue);
+    }
+
+    p {
+        font-size: 22.7px;
+    }
+
+    .hero-logo {
+        width: 400px;
+        margin-left: -1.5rem;
+    }
+
+    .para {
+        color: #ffffff;
+        letter-spacing: 5px;
+    }
+
+    .shop-btn {
+        padding:  1.2rem 1.6rem;
+        width: 9rem;
+        background-color: transparent;
+        border: 2px solid var(--cl-blue);
+        border-radius: 1rem;
+        color: var(--cl-blue);
+        font-size: 1.1rem;
+        cursor: pointer;
+        display: flex;justify-content: center;
+        align-items: center;
+        gap: .5rem;
+    }
+
+    svg {
+        display: none;
+        width: 1.5rem;
+        fill: var(--cl-blue);
+    }
+
+    .shop-btn:hover {
+        width: 11rem;
+        svg {
+            display: inline;
+            fill: var(--cl-blue);
+        }
+        
+    }
+
+
+}
+
+.right-section {
+    img {
+        width: 450px;
+    }
+}
+
+ footer {
+      text-align: center;
+      padding: 20px;
+      color: #777;
+      font-size: 0.9em;
+      border-top: 1px solid #222;
+      margin-top: 80px;
+    }
