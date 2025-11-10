@@ -20,6 +20,7 @@ function renderCart() {
     if (!matchingProduct) return;
 
     cartSummaryHtml += `
+      
       <div class="cart-item js-cart-item-container-${matchingProduct.id}">
         <img src="${matchingProduct.image}" alt="${matchingProduct.name}" class="item-image" />
         <div class="item-details">

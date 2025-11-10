@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="/assets/css/cart.css" />
     <link rel="stylesheet" href="/assets/css/header.css" />
     <link rel="stylesheet" href="/assets/css/reset.css" />
-    
+
     <title>My Cart</title>
   </head>
   <body>
@@ -31,7 +31,29 @@
         </a>
       </nav>
     </div>
-    <div class="items-container"></div>
+    <div class="main-page">
+      <h1 class="cart-header">Your Cart Products</h1>
+      <div class="items-container"></div>
+      <div class="right-products">
+        <div class="total-cost-container">
+          <h2>Résumé de la commande</h2>
+          <div class="total-line">
+            <span>Sous-total</span>
+            <span>35 900 DA</span>
+          </div>
+          <div class="total-line">
+            <span>Livraison</span>
+            <span>Gratuite</span>
+          </div>
+          <hr />
+          <div class="total-line total-final">
+            <span>Total</span>
+            <span class="total-amount">35 900 DA</span>
+          </div>
+          <button class="checkout-btn">Passer la commande</button>
+        </div>
+      </div>
+    </div>
 
     <script type="module" src="/scripts/cartpage.js"></script>
   </body>
