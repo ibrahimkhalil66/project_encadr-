@@ -2,6 +2,7 @@ import { products } from "../database/db.js";
 import { cart, addToCart, calculateCartQuantity } from "../database/cart.js";
 displayProducts();
 displayCategory();
+refreshCartQuantity();
 function displayProducts(category = "All") {
   let productsHtml = "";
   products.forEach((product) => {
@@ -85,4 +86,16 @@ function displayCategory() {
       displayProducts(selectedCategory);
     });
   });
+}
+
+function refreshCartQuantity() {
+  setInterval(() => {
+    const savedCart = JSON.parse(localStorage.getItem("cart")) || [];
+
+    if (JSON.stringify(savedCart) !== JSON.stringify(cart)) {
+      cart.length = 0;
+      savedCart.forEach((item) => cart.push(item));
+      calculateCartQuantity();
+    }
+  }, 500);
 }
