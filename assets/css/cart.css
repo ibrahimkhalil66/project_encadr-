@@ -1,12 +1,7 @@
-body {
-  font-family: 'Poppins', sans-serif;
-  background-color: #f7f7f7;
-  padding: 20px;
-}
 .items-container {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
 }
 
 .cart-item {
@@ -58,10 +53,10 @@ body {
   margin-top: 6px;
 }
 
-.item-actions  {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
+.item-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
 }
 
 .delete-btn {
