@@ -3,131 +3,35 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="/assets/css/contact.css">
+  <link rel="stylesheet" href="/assets/css/header.css">
+  <link rel="stylesheet" href="/assets/css/reset.css">
   <title>Contact Us | TechZone</title>
-  <style>
-    body {
-      margin: 0;
-      padding: 0;
-      font-family: 'Poppins', sans-serif;
-      background-color: #0d0d0d;
-      color: #f2f2f2;
-    }
-
-    header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 20px 60px;
-      background: #0d0d0d;
-    }
-
-    .logo {
-      font-size: 1.8em;
-      font-weight: 700;
-      color: #ccc;
-    }
-
-    .logo span {
-      color: #00d8ff;
-    }
-
-    nav a {
-      text-decoration: none;
-      color: #f2f2f2;
-      margin-left: 40px;
-      font-weight: 500;
-      transition: 0.3s;
-    }
-
-    nav a:hover {
-      color: #00d8ff;
-    }
-
-    .contact-section {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 100px 60px;
-    }
-
-    .contact-text {
-      width: 50%;
-    }
-
-    .contact-text h1 {
-      font-size: 3em;
-      color: #00d8ff;
-    }
-
-    .contact-text p {
-      margin-top: 15px;
-      font-size: 1.1em;
-      line-height: 1.8em;
-      color: #ccc;
-    }
-
-    form {
-      width: 40%;
-      background: #111;
-      padding: 30px;
-      border-radius: 15px;
-      box-shadow: 0 0 15px rgba(0, 216, 255, 0.2);
-    }
-
-    input, textarea {
-      width: 100%;
-      padding: 12px;
-      margin-bottom: 15px;
-      background: #1a1a1a;
-      border: 1px solid #333;
-      color: #fff;
-      border-radius: 8px;
-      font-size: 1em;
-      transition: border 0.3s;
-    }
-
-    input:focus, textarea:focus {
-      border-color: #00d8ff;
-      outline: none;
-    }
-
-    button {
-      background: none;
-      border: 2px solid #00d8ff;
-      color: #00d8ff;
-      padding: 12px 25px;
-      border-radius: 10px;
-      font-size: 1em;
-      font-weight: 600;
-      cursor: pointer;
-      transition: 0.3s;
-    }
-
-    button:hover {
-      background: #00d8ff;
-      color: #0d0d0d;
-    }
-
-    footer {
-      text-align: center;
-      padding: 20px;
-      color: #777;
-      font-size: 0.9em;
-      border-top: 1px solid #222;
-      margin-top: 80px;
-    }
-  </style>
+ 
 </head>
 <body>
 
-  <header>
-    <div class="logo">Tech<span>Zone</span></div>
-    <nav>
-      <a href="index.html">Home</a>
-      <a href="products.html">Products</a>
-      <a href="#">Contact Us</a>
-    </nav>
-  </header>
+   <div class="header">
+      <nav>
+        <img src="/assets/images/logo.png" alt="" />
+        <div class="links">
+          <a href="home.html" id="home" target="_blank">Home</a>
+          <a href="products.html" id="products" target="_blank">Products</a>
+          <a href="contact.html" id="contact" target="_blank">Contact Us</a>
+        </div>
+        <a href="../cart.html" target="_blank">
+          <div class="cart-div">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+              <title>cart</title>
+              <path
+                d="M17,18C15.89,18 15,18.89 15,20A2,2 0 0,0 17,22A2,2 0 0,0 19,20C19,18.89 18.1,18 17,18M1,2V4H3L6.6,11.59L5.24,14.04C5.09,14.32 5,14.65 5,15A2,2 0 0,0 7,17H19V15H7.42A0.25,0.25 0 0,1 7.17,14.75C7.17,14.7 7.18,14.66 7.2,14.63L8.1,13H15.55C16.3,13 16.96,12.58 17.3,11.97L20.88,5.5C20.95,5.34 21,5.17 21,5A1,1 0 0,0 20,4H5.21L4.27,2M7,18C5.89,18 5,18.89 5,20A2,2 0 0,0 7,22A2,2 0 0,0 9,20C9,18.89 8.1,18 7,18Z"
+              />
+            </svg>
+            <p class="js-cart-quantity">0</p>
+          </div>
+        </a>
+      </nav>
+    </div>
 
   <section class="contact-section">
     <div class="contact-text">

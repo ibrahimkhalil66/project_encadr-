@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>لوحة إدارة TechZone</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/adminDashboard.css">
+</head>
+<body>
+  <div class="admin-container">
+
+    <!-- الشريط الجانبي -->
+    <aside class="sidebar">
+      <h2>TechZone Admin</h2>
+      <nav>
+        <ul>
+          <li><a href="#products" class="active">المنتجات</a></li>
+          <li><a href="#messages">الرسائل</a></li>
+        </ul>
+      </nav>
+    </aside>
+
+    <!-- المحتوى الرئيسي -->
+    <main class="main-content">
+
+      <!-- قسم المنتجات -->
+      <section id="products">
+        <h2>إضافة منتج جديد</h2>
+        <form id="addProductForm" class="card-form">
+          <input type="text" placeholder="اسم المنتج" id="productName" required />
+          <input type="number" placeholder="السعر" id="productPrice" required />
+          <input type="text" placeholder="رابط الصورة" id="productImage" required />
+          <input type="text" placeholder="الفئة" id="productCategory" required />
+          <button type="submit">إضافة المنتج</button>
+        </form>
+
+        <h3>قائمة المنتجات</h3>
+        <div id="productsList" class="cards-container"></div>
+      </section>
+
+      <!-- قسم الرسائل -->
+      <section id="messages">
+        <h2>الرسائل الواردة</h2>
+        <div id="messagesList" class="cards-container"></div>
+      </section>
+
+    </main>
+  </div>
+
+  <script src="admin.js"></script>
+</body>
+</html>

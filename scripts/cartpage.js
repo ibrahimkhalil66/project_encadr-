@@ -35,9 +35,14 @@ function renderCart() {
     cartSummaryHtml += `
       
       <div class="cart-item js-cart-item-container-${matchingProduct.id}">
+      <a href="product-page.html?id=${
+        matchingProduct.id
+      }" class="btn" target="_blank">
         <img src="${matchingProduct.image}" alt="${
       matchingProduct.name
     }" class="item-image" />
+        </a>
+        
         <div class="item-details">
           <h3 class="item-title">${matchingProduct.name}</h3>
           <p class="item-price">${matchingProduct.price.toLocaleString(

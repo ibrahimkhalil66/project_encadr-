@@ -9,11 +9,14 @@ function displayProducts(category = "All") {
     if (category === "All" || category === product.category) {
       productsHtml += `
     <div class="product-card">
-        <img
+        <a href="product-page.html?id=${product.id}" class="btn" target="_blank">
+         <img
           src="${product.image}"
           alt="${product.name}"
           class="product-image"
         />
+        </a>
+       
         <div class="product-info">
           <h3>${product.name}</h3>
           <p>
