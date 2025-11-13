@@ -1,3 +1,2 @@
-import {calculateCartQuantity} from "../database/cart.js";
-
+import {calculateCartQuantity } from "../database/cart.js";
 calculateCartQuantity();

@@ -102,3 +102,4 @@ function refreshCartQuantity() {
     }
   }, 500);
 }
+

@@ -6,6 +6,7 @@ import {
 } from "../database/cart.js";
 import { products } from "../database/db.js";
 
+
 renderCart();
 calculateCartQuantity();
 totalCostCalculate();
@@ -155,8 +156,9 @@ function refreshCartQuantity() {
     if (JSON.stringify(savedCart) !== JSON.stringify(cart)) {
       cart.length = 0;
       savedCart.forEach((item) => cart.push(item));
-      renderCart();
       calculateCartQuantity();
+      renderCart();
     }
   }, 500);
 }
+
