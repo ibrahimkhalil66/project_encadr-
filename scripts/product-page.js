@@ -1,5 +1,10 @@
 import { products } from "../database/db.js";
-import { cart, addToCart, calculateCartQuantity, saveToStorage } from "../database/cart.js";
+import {
+  cart,
+  addToCart,
+  calculateCartQuantity,
+  saveToStorage,
+} from "../database/cart.js";
 
 renderProduct();
 refreshCartQuantity();
@@ -7,7 +12,6 @@ refreshCartQuantity();
 function renderProduct() {
   const params = new URLSearchParams(window.location.search);
   const productId = parseInt(params.get("id"), 10);
-
   const product = products.find((p) => p.id === productId);
   const container = document.getElementById("product-details");
 
@@ -16,7 +20,6 @@ function renderProduct() {
     container.innerHTML = "<h2>المنتج غير موجود!</h2>";
     return;
   }
-
   document.title = `${product.name}`;
 
   container.innerHTML = `
@@ -24,7 +27,11 @@ function renderProduct() {
           <img src="${product.image}" alt="${product.name}" class="big-img" />
           <div class="info">
             <h1>${product.name}</h1>
-            <p class="price">Price : $${product.price}</p>
+            <p class="price">Price : ${product.price.toLocaleString(
+              "fr-DZ"
+            )} DA <br><small><del>${(product.price + 3000).toLocaleString(
+    "fr-DZ"
+  )} DA</small></del></p>
             <p class="desc">${product.description}</p>
             <div class="quantity-control">
             <button class="minus">-</button>
@@ -39,6 +46,7 @@ function renderProduct() {
   const quantityEl = container.querySelector(
     `.js-quantity-selector-${productId}`
   );
+  renderReviews(product);
   const minusBtn = container.querySelector(".minus");
   const plusBtn = container.querySelector(".plus");
   const addBtn = container.querySelector(".add-btn");
@@ -90,4 +98,19 @@ function refreshCartQuantity() {
       calculateCartQuantity();
     }
   }, 500);
+}
+
+function renderReviews(product) {
+  if (!product.reviews) product.reviews = [];
+  reviewsList.innerHTML = "";
+
+  product.reviews.forEach((review) => {
+    reviewsList.innerHTML += `
+      <div class="review-item">
+        <div class="name">${review.name}</div>
+        <div class="date">${review.date}</div>
+        <div class="text">${review.text}</div>
+      </div>
+    `;
+  });
 }

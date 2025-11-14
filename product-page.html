@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html lang="ar">
-<head>
-  <meta charset="UTF-8" />
-  <link rel="stylesheet" href="/assets/css/product-page.css">
-  <link rel="stylesheet" href="/assets/css/header.css">
-  <link rel="stylesheet" href="/assets/css/reset.css">
-  <link rel="stylesheet" href="/assets/css/cart.css">
-</head>
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="/assets/css/product-page.css" />
+    <link rel="stylesheet" href="/assets/css/header.css" />
+    <link rel="stylesheet" href="/assets/css/reset.css" />
+    <link rel="stylesheet" href="/assets/css/cart.css" />
+  </head>
 
-<body>
+  <body>
     <div class="header">
       <nav>
         <img src="/assets/images/logo.png" alt="" />
@@ -32,9 +32,25 @@
     </div>
 
     <h2 class="Product-added"></h2>
-  <div id="product-details"></div>
+    <div id="product-details"></div>
+    <div class="reviews-section">
+      <h2>Customer Reviews</h2>
 
-  <script type="module" src="/scripts/product-page.js"></script>
-  <script type="module" src="/scripts/header.js"></script>
-</body>
+      <!-- قائمة الآراء -->
+      <div class="reviews-list" id="reviewsList"></div>
+
+      <!-- إضافة رأي جديد -->
+      <div class="add-review-box">
+        <h3>Add Your Review</h3>
+
+        <input type="text" id="reviewName" placeholder="Your name" />
+        <textarea id="reviewText" placeholder="Write your review..."></textarea>
+
+        <button id="submitReview">Submit Review</button>
+      </div>
+    </div>
+
+    <script type="module" src="/scripts/product-page.js"></script>
+    <script type="module" src="/scripts/header.js"></script>
+  </body>
 </html>

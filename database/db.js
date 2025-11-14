@@ -299,7 +299,7 @@ export const products = [
   description:"Ubeesize Phone Tripod, Portable and Flexible Tripods with Wireless Remote and Clip",
 },
 {
-  id: 32,
+  id: 33,
   name: "Ring light",
   category: "Phones Accesseoirs",
   price: 6500,

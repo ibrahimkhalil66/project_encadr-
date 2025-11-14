@@ -22,23 +22,7 @@ function displayProducts(category = "All") {
           <p>
             ${product.description}
           </p>
-          <div class="quantity">
-            <label for="Quantity">Quantity:</label>
-            <select class="quantity-selector js-quantity-selector-${
-              product.id
-            }">
-              <option selected value="1">1</option>
-              <option value="2">2</option>
-              <option value="3">3</option>
-              <option value="4">4</option>
-              <option value="5">5</option>
-              <option value="6">6</option>
-              <option value="7">7</option>
-              <option value="8">8</option>
-              <option value="9">9</option>
-              <option value="10">10</option>
-            </select>
-          </div>
+          
           <div class="product-price">${product.price.toLocaleString(
             "fr-DZ"
           )} DA</div>

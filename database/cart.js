@@ -11,10 +11,6 @@ export function addToCart(productId, quantity = 1) {
     }
   });
 
-  const quantitySelector = document.querySelector(
-    `.js-quantity-selector-${productId}`
-  );
-
   if (matchingItem) {
     matchingItem.quantity += quantity;
   } else {
