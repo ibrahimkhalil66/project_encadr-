@@ -55,6 +55,29 @@
       </div>
     </div>
 
+
+<div id="checkoutModal" class="modal">
+  <div class="modal-content">
+    <h2>Complete Your Order</h2>
+    
+
+    <label>Name:</label>
+    <input type="text" id="clientName" placeholder="Your Name">
+
+    <label>Phone:</label>
+    <input type="text" id="clientPhone" placeholder="Your Phone Number">
+
+    <label>Address:</label>
+    <input type="text" id="clientAddress" placeholder="Your Address">
+
+    <button id="confirmOrder" class="confirm-btn">Confirm Order</button>
+    <button id="downloadPDF" class="pdf-btn" style="display:none">Download PDF</button>
+    <button class="cancel-btn">Cancel Order</button>
+  </div>
+</div>
+
+
     <script type="module" src="/scripts/cartpage.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
   </body>
 </html>

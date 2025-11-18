@@ -6,11 +6,11 @@ import {
 } from "../database/cart.js";
 import { products } from "../database/db.js";
 
-
 renderCart();
 calculateCartQuantity();
 totalCostCalculate();
 refreshCartQuantity();
+chekoutOrder();
 
 function renderCart() {
   const itemsContainer = document.querySelector(".items-container");
@@ -162,3 +162,112 @@ function refreshCartQuantity() {
   }, 500);
 }
 
+function chekoutOrder() {
+  function generateOrderID() {
+    return (
+      "TZ-" +
+      new Date().getFullYear() +
+      "-" +
+      Math.floor(10000 + Math.random() * 90000)
+    );
+  }
+  const checkoutBtn = document.querySelector(".checkout-btn");
+  const cancelBtn = document.querySelector(".cancel-btn");
+  const modalDiv = document.getElementById("checkoutModal");
+  const confirmBtn = document.getElementById("confirmOrder");
+  const pdfBtn = document.querySelector(".pdf-btn");
+  checkoutBtn.addEventListener("click", () => {
+    if (cart.length === 0) {
+      return alert("Your Cart is empty");
+    } else {
+      modalDiv.style.display = "flex";
+    }
+  });
+
+  cancelBtn.addEventListener("click", () => {
+    modalDiv.style.display = "none";
+    pdfBtn.style.display = "none";
+  });
+
+  confirmBtn.addEventListener("click", () => {
+    const name = document.getElementById("clientName").value.trim();
+    const phone = document.getElementById("clientPhone").value.trim();
+    const address = document.getElementById("clientAddress").value.trim();
+
+    if (!name || !phone || !address) {
+      alert("Please fill all fields");
+      return;
+    }
+    const orderID = generateOrderID();
+    localStorage.setItem("orderID", orderID);
+
+    pdfBtn.style.display = "flex";
+    alert(
+      "Your information has been registered. You can now download your invoice."
+    );
+  });
+
+  pdfBtn.addEventListener("click", () => {
+    const { jsPDF } = window.jspdf;
+    const pdf = new jsPDF();
+
+    const orderID = localStorage.getItem("orderID");
+    const name = document.getElementById("clientName").value;
+    const phone = document.getElementById("clientPhone").value;
+    const address = document.getElementById("clientAddress").value;
+
+    let y = 15;
+    pdf.setFontSize(18);
+    pdf.text("Order Invoice", 10, y);
+    y += 15;
+
+    pdf.setFontSize(14);
+    pdf.text(`Order ID: ${orderID}`, 10, y);
+    y += 10;
+
+    pdf.text(`Name: ${name}`, 10, y);
+    y += 10;
+
+    pdf.text(`Phone: ${phone}`, 10, y);
+    y += 10;
+
+    pdf.text(`Address: ${address}`, 10, y);
+    y += 15;
+
+    pdf.setFontSize(16);
+    pdf.text("Products:", 10, y);
+    y += 12;
+
+    let total = 0;
+
+    cart.forEach((item) => {
+      const product = products.find(
+        (p) => String(p.id) === String(item.productId)
+      );
+
+      if (!product) return;
+
+      const lineTotal = product.price * item.quantity;
+      total += lineTotal;
+
+      pdf.setFontSize(12);
+      pdf.text(
+        `${product.name} (x${item.quantity}) — ${lineTotal.toLocaleString(
+          "fr-DZ"
+        )} DA`,
+        10,
+        y
+      );
+      y += 8;
+    });
+
+    y += 10;
+
+    pdf.setFontSize(16);
+    pdf.text(`TOTAL: ${total.toLocaleString("fr-DZ")} DA`, 10, y);
+
+    
+    pdf.save(`${orderID}.pdf`);
+    modalDiv.style.display = "none";
+  });
+}
