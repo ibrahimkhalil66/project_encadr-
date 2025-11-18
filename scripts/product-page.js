@@ -20,6 +20,11 @@ function renderProduct() {
     container.innerHTML = "<h2>المنتج غير موجود!</h2>";
     return;
   }
+
+const savedReviews = JSON.parse(localStorage.getItem(`product-reviews-${product.id}`));
+if (savedReviews) {
+  product.reviews = savedReviews;
+}
   document.title = `${product.name}`;
 
   container.innerHTML = `
@@ -121,19 +126,20 @@ function renderReviews(product) {
     const newReview = {
       name,
       text,
-      date: new Date().toDateString(), 
+      date: new Date().toDateString(),
     };
 
     product.reviews.push(newReview);
-
+    localStorage.setItem(
+      `product-reviews-${product.id}`,
+      JSON.stringify(product.reviews)
+    );
     displayReviews(product, reviewsList);
 
-    console.log(`${name} said ${text}`);
-    console.log(product);
   }
 
-    nameInput.value = "";
-    textInput.value = "";
+  nameInput.value = "";
+  textInput.value = "";
 }
 
 function displayReviews(product, reviewsList) {
@@ -141,6 +147,7 @@ function displayReviews(product, reviewsList) {
     reviewsList.innerHTML = "<p>No reviews yet</p>";
     return;
   }
+
 
   let html = "";
 

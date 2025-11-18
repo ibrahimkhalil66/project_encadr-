@@ -52,7 +52,7 @@ function displayAdded(productId) {
 function attachEventListeners() {
   document.querySelectorAll(".js-add-to-cart").forEach((button) => {
     button.addEventListener("click", () => {
-      const productId = button.dataset.productId;
+      const productId = Number(button.dataset.productId);
       addToCart(productId);
       calculateCartQuantity();
       displayAdded(productId);
