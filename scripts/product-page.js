@@ -46,7 +46,7 @@ function renderProduct() {
   const quantityEl = container.querySelector(
     `.js-quantity-selector-${productId}`
   );
-  renderReviews(product);
+
   const minusBtn = container.querySelector(".minus");
   const plusBtn = container.querySelector(".plus");
   const addBtn = container.querySelector(".add-btn");
@@ -86,6 +86,8 @@ function renderProduct() {
       }, 2000);
     }
   });
+
+  renderReviews(product);
 }
 
 function refreshCartQuantity() {
@@ -99,18 +101,57 @@ function refreshCartQuantity() {
     }
   }, 500);
 }
-
 function renderReviews(product) {
   if (!product.reviews) product.reviews = [];
-  reviewsList.innerHTML = "";
+  const addReviewBtn = document.getElementById("submitReview");
+  const nameInput = document.getElementById("reviewName");
+  const textInput = document.getElementById("reviewText");
+  const reviewsList = document.getElementById("reviewsList");
+
+  displayReviews(product, reviewsList);
+
+  addReviewBtn.removeEventListener("click", handleAddReview);
+  addReviewBtn.addEventListener("click", handleAddReview);
+
+  function handleAddReview() {
+    const name = nameInput.value.trim();
+    const text = textInput.value.trim();
+    if (name === "" || text === "") return;
+
+    const newReview = {
+      name,
+      text,
+      date: new Date().toDateString(), 
+    };
+
+    product.reviews.push(newReview);
+
+    displayReviews(product, reviewsList);
+
+    console.log(`${name} said ${text}`);
+    console.log(product);
+  }
+
+    nameInput.value = "";
+    textInput.value = "";
+}
+
+function displayReviews(product, reviewsList) {
+  if (!product.reviews || product.reviews.length === 0) {
+    reviewsList.innerHTML = "<p>No reviews yet</p>";
+    return;
+  }
+
+  let html = "";
 
   product.reviews.forEach((review) => {
-    reviewsList.innerHTML += `
+    html += `
       <div class="review-item">
-        <div class="name">${review.name}</div>
-        <div class="date">${review.date}</div>
-        <div class="text">${review.text}</div>
+        <h1 class="name">${review.name}<span class="date">(${review.date})</span></h1>
+        <p class="text">${review.text}</p>
       </div>
     `;
   });
+
+  reviewsList.innerHTML = html;
 }

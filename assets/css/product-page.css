@@ -129,6 +129,9 @@
 }
 
 .reviews-list {
+  display: grid;
+  grid-template-columns:  1fr 1fr 1fr;
+  gap: 1rem;
   margin-bottom: 30px;
 }
 
@@ -137,7 +140,6 @@
   padding: 15px 20px;
   border-radius: 10px;
   box-shadow: 0 3px 10px rgba(0,0,0,0.08);
-  margin-bottom: 15px;
 }
 
 .review-item .name {
@@ -147,14 +149,16 @@
 }
 
 .review-item .date {
-  font-size: 13px;
+  font-size: 1rem;
   color: #666;
   margin-bottom: 10px;
+  margin-left: .5rem;
 }
 
 .review-item .text {
   font-size: 15px;
   color: #333;
+  width: 20rem;
 }
 
 .add-review-box {
