@@ -5,6 +5,7 @@ import {
   saveToStorage,
 } from "../database/cart.js";
 import { products } from "../database/db.js";
+import { orders, saveOrderToStorage } from "../database/orders.js";
 
 renderCart();
 calculateCartQuantity();
@@ -232,6 +233,9 @@ function chekoutOrder() {
     y += 10;
 
     pdf.text(`Address: ${address}`, 10, y);
+    y += 10;
+
+    pdf.text(`Date: ${Date()}`, 10, y);
     y += 15;
 
     pdf.setFontSize(16);
@@ -266,8 +270,39 @@ function chekoutOrder() {
     pdf.setFontSize(16);
     pdf.text(`TOTAL: ${total.toLocaleString("fr-DZ")} DA`, 10, y);
 
-    
-    pdf.save(`${orderID}.pdf`);
+    const pdfFile = pdf.save(`${orderID}.pdf`);
+
+    const orderProducts = cart.map((item) => {
+      const product = products.find(
+        (p) => String(p.id) === String(item.productId)
+      );
+
+      return {
+        id: product.id,
+        name: product.name,
+        price: product.price,
+        quantity: item.quantity,
+        total: product.price * item.quantity,
+      };
+    });
+
+    const orderTotal = orderProducts.reduce((sum, item) => sum + item.total, 0);
+
+    orders.push({
+      id: orderID,
+      name: name,
+      phone: phone,
+      address: address,
+      products: orderProducts,
+      total: orderTotal,
+      date: new Date().toLocaleString(),
+      pdfFile : pdfFile
+    });
+
+    cart.length = 0;
+    saveToStorage();
+    saveOrderToStorage();
     modalDiv.style.display = "none";
+    location.reload();
   });
 }
