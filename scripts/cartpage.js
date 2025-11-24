@@ -235,7 +235,7 @@ function chekoutOrder() {
     pdf.text(`Address: ${address}`, 10, y);
     y += 10;
 
-    pdf.text(`Date: ${Date()}`, 10, y);
+    pdf.text(`Date: ${Date().toLocaleString()}`, 10, y);
     y += 15;
 
     pdf.setFontSize(16);

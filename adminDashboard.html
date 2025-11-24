@@ -1,19 +1,74 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="/assets/css/adminDashboard.css">
-  <title>Admin - Orders</title>
-  <link rel="stylesheet" href="admin.css" />
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/assets/css/adminDashboard.css" />
+    <link rel="stylesheet" href="/assets/css/admin-style-1.css" />
+    <title>Admin - Orders</title>
+    <link rel="stylesheet" href="admin.css" />
+  </head>
+  <body>
+    <div class="sidebar">
+      <div class="logo-div">
+        <svg
+          class="logo"
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 24 24"
+        >
+          <title>view-dashboard</title>
+          <path d="M13,3V9H21V3M13,21H21V11H13M3,21H11V15H3M3,13H11V3H3V13Z" />
+        </svg>
+        <h1>Dashboard</h1>
+      </div>
+      <ul>
+        <li class="home-btn">
+          <svg
+            class="side-icons"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+          >
+            <title>home</title>
+            <path d="M10,20V14H14V20H19V12H22L12,3L2,12H5V20H10Z" />
+          </svg>
+          <p>Home</p>
+        </li>
+        <li class="orders-btn">
+          <svg
+            class="side-icons"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+          >
+            <title>account-outline</title>
+            <path
+              d="M12,4A4,4 0 0,1 16,8A4,4 0 0,1 12,12A4,4 0 0,1 8,8A4,4 0 0,1 12,4M12,6A2,2 0 0,0 10,8A2,2 0 0,0 12,10A2,2 0 0,0 14,8A2,2 0 0,0 12,6M12,13C14.67,13 20,14.33 20,17V20H4V17C4,14.33 9.33,13 12,13M12,14.9C9.03,14.9 5.9,16.36 5.9,17V18.1H18.1V17C18.1,16.36 14.97,14.9 12,14.9Z"
+            />
+          </svg>
+          <p>Orders</p>
+        </li>
+        <li>
+          <svg
+            class="side-icons"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+          >
+            <title>message-reply</title>
+            <path
+              d="M22,4C22,2.89 21.1,2 20,2H4A2,2 0 0,0 2,4V16A2,2 0 0,0 4,18H18L22,22V4Z"
+            />
+          </svg>
+          <p>Messages</p>
+        </li>
+       
+      </ul>
+    </div>
+    <section class="home"></section>
+    <section class="orders" style="display: none">
+      <h1 class="title"></h1>
+      <div class="orders-container" id="ordersContainer"></div>
+    </section>
 
-  <h1 class="title"></h1>
-
-  <div class="orders-container" id="ordersContainer"></div>
-
-  <script type="module" src="/scripts/admin.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
-</body>
+    <script type="module" src="/scripts/admin.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  </body>
 </html>
