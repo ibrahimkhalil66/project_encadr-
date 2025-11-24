@@ -5,7 +5,7 @@ export const products = [
     name: "HEADSET HYPER X CLOUD III WIRELESS",
     category: "Computers Accesseoirs",
     price: 40000,
-    image: "./assets/images/p-img/HEADSET HYPERX CLOUD III.jpg",
+    image: "assets/images/p-img/HEADSET HYPERX CLOUD III.jpg",
     description:
       "Up to 120 hours of Battery Life. Put on the Cloud III Wireless and you might not have to charge for weeks.",
   },
