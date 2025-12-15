@@ -137,9 +137,15 @@ body {
   gap: 1rem;
   cursor: pointer;
   font-weight: 600;
+  padding: .5rem;
+  
 }
 
-.sidebar li:hover {
-  opacity: .7;
+
+.selected-section {
+  background-color: white;
+  color: #00aaff;
+  fill: #00aaff;
+  border-top-left-radius: 1rem;
 }
 

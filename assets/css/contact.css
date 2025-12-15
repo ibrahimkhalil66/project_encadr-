@@ -1,3 +1,29 @@
+nav {
+    position: sticky;
+    z-index: 999;
+    top: 1rem;
+    background: white;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    justify-self: center;
+    padding: 0rem 7rem;
+    border-radius: 20rem;
+    margin-bottom: 4rem;
+    margin-top: 1rem;
+    width: 50rem;
+    height: 65px;
+    background: rgb(36, 37, 42);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, .7);
+
+    img {
+        width: 200px;
+    }
+}
+
+
+
+
 .contact-section {
       display: flex;
       justify-content: space-between;
@@ -18,7 +44,6 @@
       margin-top: 15px;
       font-size: 1.1em;
       line-height: 1.8em;
-      color: #ccc;
     }
 
     form {
@@ -45,6 +70,9 @@
       border-color: #00d8ff;
       outline: none;
     }
+    textarea {
+      resize: none;
+    }
 
     button {
       background: none;
@@ -63,11 +91,4 @@
       color: #0d0d0d;
     }
 
-    footer {
-      text-align: center;
-      padding: 20px;
-      color: #777;
-      font-size: 0.9em;
-      border-top: 1px solid #222;
-      margin-top: 80px;
-    }
+  

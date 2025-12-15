@@ -4,12 +4,13 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="assets/css/home.css" />
-    <link rel="stylesheet" href="assets/css/footer.css">
+    <link rel="stylesheet" href="assets/css/footer.css" />
+    
     <title>Home</title>
   </head>
   <body>
     <nav>
-      <img src="assets/images/logo.png" alt="" />
+      <img class="logo" src="assets/images/logo.png" alt="" />
       <div class="links">
         <a href="home.html" id="home" target="_blank">Home</a>
         <a href="products.html" id="products" target="_blank">Products</a>
@@ -18,13 +19,13 @@
     </nav>
 
     <main>
+      <div class="arrow left" onclick="prevProduct()">&#10094;</div>
       <div class="left-section">
-        <p class="welcome-para">Welcome To</p>
-        <img class="hero-logo" src="assets/images/logo.png" alt="" />
-        <p class="para">The world of technology in your hands.</p>
+        <h2 id="hero-name"></h2>
+        <p id="hero-desc"></p>
         <a href="products.html" target="_blank">
           <button class="shop-btn">
-            Shop Now
+            Buy Now
             <svg
               class="row"
               xmlns="http://www.w3.org/2000/svg"
@@ -39,9 +40,33 @@
         </a>
       </div>
       <div class="right-section">
-        <img class="casque-img" src="assets/images/Caque-img.png" alt="" />
+        <img id="product-img" class="product-img" src="" alt="" />
       </div>
+      <div class="arrow right" onclick="nextProduct()">&#10095;</div>
     </main>
+
+    <div class="section-category">
+      <h1>Our Categories</h1>
+      <section class="categories">
+      <a href="products.html" class="cat-card computer-cat-link" target="_blank">
+          <img class="computer-cate" src="assets/images/p-img/HEADSET HYPERX CLOUD III.jpg" alt="Computer Accessories" />
+          <h3>Computer Accessories</h3>
+      </a>
+
+      <a href="products.html" class="cat-card phone-cat-link" target="_blank">
+          <img class="phone-cate"  src="assets/images/p-img/Ubeesize Phone Tripod.jpg" alt="Phone Accessories" />
+          <h3>Phone Accessories</h3>
+      </a>
+
+      <a href="products.html" class="cat-card audio-cat-link" target="_blank">
+          <img class="audio-cate" src="assets/images/p-img/MICROPHONE FIFINE K690.jpeg" alt="Audio Devices" />
+          <h3>Audio</h3>
+      </a>
+    </section>
+    </div>
+    
     <footer>© 2025 TechZone. All rights reserved.</footer>
+
+    <script type="module" src="scripts/home.js"></script>
   </body>
 </html>

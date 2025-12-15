@@ -1,3 +1,16 @@
+/* -------------------------------- Home Page ------------------------------- */
+.welcome-message {
+  justify-self: center;
+  margin-top: 2rem;
+}
+.shop-link {
+  text-decoration: none;
+  color: black;
+  padding: 1rem 2rem;
+  background: #00aaff;
+  
+}
+/* ------------------------------- Orders Page ------------------------------ */
 .orders {
   display: flex;
   flex-direction: column;

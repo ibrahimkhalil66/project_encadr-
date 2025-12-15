@@ -18,9 +18,7 @@
 
 }
 
-body {
-    background-color: var(--bg-clr-black);
-}
+
 
 * {
     font-family: 'Poppins', sans-serif;
@@ -28,19 +26,28 @@ body {
 
 /* ----------------------------- NAVIGATION BAR ----------------------------- */
 nav {
+    position: sticky;
+    z-index: 999;
+    top: 1rem;
+    background: white;
     display: flex;
     align-items: center;
-    padding: 0rem 5rem;
-    height: 100px;
-    gap: 25%;
+    justify-content: space-between;
+    justify-self: center;
+    padding: 0rem 7rem;
+    border-radius: 20rem;
+    margin-bottom: 4rem;
+    margin-top: 1rem;
+    width: 50rem;
+    height: 65px;
+    background: rgb(36, 37, 42);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, .7);
+
 
 
     img {
         width: 200px;
     }
-
-
-
 }
 
 .links {
@@ -49,12 +56,12 @@ nav {
 
     a {
         text-decoration: none;
-        color: #ffffff;
+        color: white;
         font-weight: bold;
     }
 
     a:hover {
-        color: var(--color-300);
+        color: #00d8ff;
     }
 
 }
@@ -84,10 +91,29 @@ a {
 /* ------------------------------ MAIN SECTION ------------------------------ */
 
 main {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    padding: 0rem 6rem;
-    gap: 10rem;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    justify-self: center;
+    padding: 70px 60px;
+    background: #ffffff;
+    width: 1000px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, .7);
+    border-radius: 2rem;
+
+
+}
+
+.left-section {
+    max-width: 460px;
+}
+
+.left-section h2 {
+    font-size: 36px;
+    font-weight: 700;
+    width: 100%;
+    margin: 15px 0;
+    color: #111;
 }
 
 .left-section {
@@ -96,34 +122,23 @@ main {
     justify-content: center;
     gap: 0rem;
 
-
-    .welcome-para {
-        color: var(--cl-blue);
-    }
-
     p {
-        font-size: 22.7px;
+        font-size: 20px;
     }
 
-    .hero-logo {
-        width: 400px;
-        margin-left: -1.5rem;
-    }
 
-    .para {
-        color: #ffffff;
-    }
 
     .shop-btn {
-        padding:  1.2rem 1.6rem;
+        padding: 1.2rem 1.6rem;
         width: 9rem;
-        background-color: transparent;
-        border: 2px solid var(--cl-blue);
+        background: #00d8ff;
         border-radius: 1rem;
-        color: var(--cl-blue);
+        border: none;
+        color: white;
         font-size: 1.1rem;
         cursor: pointer;
-        display: flex;justify-content: center;
+        display: flex;
+        justify-content: center;
         align-items: center;
         gap: .5rem;
     }
@@ -131,16 +146,16 @@ main {
     svg {
         display: none;
         width: 1.5rem;
-        fill: var(--cl-blue);
     }
 
     .shop-btn:hover {
         width: 11rem;
+
         svg {
-            display: inline;
-            fill: var(--cl-blue);
+            display: block;
+            fill: white;
         }
-        
+
     }
 
 
@@ -149,7 +164,186 @@ main {
 .right-section {
     img {
         width: 450px;
+        height: 400px;
+        object-fit: contain;
+        /* يمنع التمطيط ويحافظ على الأبعاد */
+        object-position: center;
+        display: block;
     }
 }
 
- 
+.arrow {
+    font-size: 45px;
+    cursor: pointer;
+    position: absolute;
+    top: 25rem;
+    transform: translateY(-50%);
+    user-select: none;
+    color: #333;
+    padding: 10px;
+    transition: 0.2s;
+    font-weight: bold;
+}
+
+.arrow:hover {
+    color: #00bfff;
+}
+
+.left {
+    left: 20px;
+}
+
+.right {
+    right: 20px;
+}
+
+.product-img {
+    width: 420px;
+    transition: opacity 0.3s ease;
+}
+
+.section-category {
+    margin-top: 5rem;
+}
+
+.categories {
+  width: 90%;
+  margin: 40px auto;
+  display: flex;
+  justify-content: space-between;
+  gap: 25px;
+}
+
+.cat-card {
+  display: block;
+  flex: 1;
+  background: #ffffff;
+  border-radius: 20px;
+  padding: 35px 20px;
+  text-align: center;
+  cursor: pointer;
+  transition: 0.3s ease;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.1);
+}
+
+.cat-card img {
+  width: 80px;
+  height: 80px;
+  margin-bottom: 15px;
+}
+
+.cat-card h3 {
+  font-size: 20px;
+  font-weight: 700;
+  color: #222;
+  margin: 0;
+}
+
+.cat-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.section-category h1 {
+    justify-self: center;
+}
+
+
+
+/* ------------------------------------------- */
+/* RESPONSIVE DESIGN */
+/* ------------------------------------------- */
+
+/* --- Tablets (max-width: 991px) --- */
+@media (max-width: 991px) {
+    nav {
+        padding: 20px 30px;
+    }
+
+    main {
+        padding: 60px 30px;
+    }
+
+    .product-img {
+        width: 380px;
+    }
+
+    .hero-logo {
+        width: 220px;
+    }
+}
+
+/* --- Mobile (max-width: 768px) --- */
+@media (max-width: 768px) {
+
+    nav {
+        flex-direction: column;
+        gap: 15px;
+        padding: 20px;
+    }
+
+    .links a {
+        margin-left: 15px;
+        font-size: 15px;
+    }
+
+    main {
+        flex-direction: column-reverse;
+        text-align: center;
+        padding: 40px 20px;
+    }
+
+    .left-section {
+        max-width: 100%;
+    }
+
+    .product-img {
+        width: 300px;
+        margin-bottom: 30px;
+    }
+
+    .hero-logo {
+        width: 200px;
+    }
+
+    .para {
+        font-size: 18px;
+    }
+
+    .shop-btn {
+        margin: auto;
+    }
+}
+
+/* --- Small Mobile (max-width: 480px) --- */
+@media (max-width: 480px) {
+
+    nav .logo {
+        width: 130px;
+    }
+
+    .links a {
+        font-size: 14px;
+    }
+
+    .welcome-para {
+        font-size: 18px;
+    }
+
+    .hero-logo {
+        width: 180px;
+    }
+
+    .para {
+        font-size: 16px;
+    }
+
+    .shop-btn {
+        padding: 12px 22px;
+        font-size: 15px;
+    }
+
+    .product-img {
+        width: 260px;
+    }
+}

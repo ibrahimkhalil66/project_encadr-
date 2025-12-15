@@ -3,7 +3,7 @@ import { cart, addToCart, calculateCartQuantity } from "../database/cart.js";
 displayProducts();
 displayCategory();
 refreshCartQuantity();
-function displayProducts(category = "All") {
+export function displayProducts(category = "All") {
   let productsHtml = "";
   products.forEach((product) => {
     if (category === "All" || category === product.category) {

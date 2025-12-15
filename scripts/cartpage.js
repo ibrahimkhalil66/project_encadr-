@@ -217,7 +217,9 @@ function chekoutOrder() {
     const phone = document.getElementById("clientPhone").value;
     const address = document.getElementById("clientAddress").value;
 
-    let y = 15;
+    pdf.setFontSize(25);
+    pdf.text("TechZone Store", 75, 10);
+    let y = 30;
     pdf.setFontSize(18);
     pdf.text("Order Invoice", 10, y);
     y += 15;

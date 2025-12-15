@@ -68,7 +68,7 @@ export const products = [
   {
     id: 8,
     name: "MOUSEPAD SIMPLE QH-1",
-    category: "Phones Accesseoirs",
+    category: "Computers Accesseoirs",
     price: 3000,
     image: "./assets/images/p-img/MOUSEPAD SIMPLE QH-1.jpg",
     description:
@@ -77,7 +77,7 @@ export const products = [
   {
     id: 9,
     name: "HEADSET SAUKER HL-G08 7.1 USB",
-    category: "Phones Accesseoirs",
+    category: "Computers Accesseoirs",
     price: 22000,
     image: "./assets/images/p-img/HEADSET SAUKER HL-G08 7.1 USB.jpg",
     description:
