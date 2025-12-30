@@ -1,12 +1,46 @@
-const nameEl = document.getElementById("name").innerHTML;
-const emailEl = document.getElementById("email").innerHTML;
-const commentEl = document.getElementById("comment").innerHTML;
-const submitBtn = document.getElementById("submit");
+const nameInput = document.getElementById("name");
+const emailInput = document.getElementById("email");
+const commentInput = document.getElementById("comment");
+const submitBtn = document.getElementById("btn");
 
-submitBtn.addEventListener("click", () => {
- 
-    alert("Thank you for your comment");
-    console.log(nameEl);
-    console.log(emailEl);
-    console.log(commentEl);
+export const stored = JSON.parse(localStorage.getItem("savedComment")) || [];
+
+submitBtn.addEventListener("click", (e) => {
+
+    e.preventDefault();
+    const name = nameInput.value.trim();
+    const email = emailInput.value.trim();
+    const comment = commentInput.value.trim();
+
+     if (!name || !email) {
+      alert("Please enter your Name and Email");
+      return;
+    }
+
+    if (!comment) {
+      alert("Please enter your Comment");
+      return;
+    }
+
+
+    const newEntry = {
+        name,
+        email,
+        comment,
+        date: new Date().toISOString()
+    };
+
+    stored.push(newEntry);
+    localStorage.setItem("savedComment", JSON.stringify(stored));
+
+     alert("Thank you — your message was Sent.");
+    nameInput.value = "";
+    emailInput.value = "";
+    commentInput.value = "";
+
+
+
+
+console.log(stored);
+
 });

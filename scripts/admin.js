@@ -1,10 +1,9 @@
 import { orders, saveOrderToStorage } from "../database/orders.js";
 
-
 const ordersContainer = document.getElementById("ordersContainer");
 const titelEl = document.querySelector(".title");
+const stored = JSON.parse(localStorage.getItem("savedComment")) || [];
 
-console.log(orders);
 titelEl.innerHTML = `Orders  (${orders.length})`;
 function renderOrders() {
   if (orders.length === 0) {
@@ -40,7 +39,7 @@ function renderOrders() {
 
       <h3>Total: ${order.total.toLocaleString("fr-DZ")} DA</h3>
       <div class="btns">
-      <button class="download-btn"">
+      <button class="download-btn">
         Download PDF
       </button>
       <button class="delete-order" data-order-id="${order.id}">
@@ -48,13 +47,13 @@ function renderOrders() {
       </button>
       </div>
     `;
-
     ordersContainer.appendChild(card);
   });
+  attachDeleteListeners();
 }
 
 renderOrders();
-deleteOrder();
+
 function sectionsSeletcor() {
   const homeBtn = document.querySelector(".home-btn");
   const ordersBtn = document.querySelector(".orders-btn");
@@ -64,7 +63,7 @@ function sectionsSeletcor() {
   const messagesSec = document.querySelector(".messages");
 
   homeBtn.addEventListener("click", () => {
-    homeSec.style.display = "flex";
+    homeSec.style.display = "block";
     ordersSec.style.display = "none";
     messagesSec.style.display = "none";
     homeBtn.classList.add("selected-section");
@@ -86,26 +85,49 @@ function sectionsSeletcor() {
     homeBtn.classList.remove("selected-section");
     ordersBtn.classList.remove("selected-section");
   });
-
 }
 
 sectionsSeletcor();
 
-function deleteOrder() {
-  const delBtn = document.querySelectorAll(".delete-order");
+function attachDeleteListeners() {
+  const delBtns = document.querySelectorAll(".delete-order");
 
-  delBtn.forEach((btn) => {
+  delBtns.forEach((btn) => {
     btn.addEventListener("click", () => {
       const id = btn.dataset.orderId;
-
       const index = orders.findIndex((o) => o.id == id);
       if (index !== -1) {
         orders.splice(index, 1);
       }
       saveOrderToStorage();
-      renderOrders();
+      renderOrders(); // re-renders and will re-attach listeners
       titelEl.innerHTML = `Orders (${orders.length})`;
-      deleteOrder();
+      attachDeleteListeners();
     });
   });
 }
+
+displayMessages();
+
+function displayMessages() {
+  const CommentsDiv = document.querySelector(".messages-container");
+
+  if (stored.length === 0) {
+    CommentsDiv.innerHTML = "<p>No Messages</p>";
+    return;
+  }
+
+  const html = stored
+    .map(
+      (comment) => `
+    <div class="comment-item">
+      <h3 class="name">${comment.name} <span class="date">(${comment.date})</span></h3>
+      <p class="text">${comment.comment}</p>
+    </div>
+  `
+    )
+    .join("");
+
+  CommentsDiv.innerHTML = html;
+}
+
