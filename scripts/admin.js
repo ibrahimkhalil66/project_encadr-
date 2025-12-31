@@ -1,9 +1,55 @@
 import { orders, saveOrderToStorage } from "../database/orders.js";
-adminLogin();
 function adminLogin() {
+  const loginPage = document.querySelector(".login-page");
   const dashboard = document.querySelector(".dashboard");
+  const usernameInput = document.getElementById("username");
+  const passInput = document.getElementById("pass");
+  const loginBtn = document.querySelector(".login-btn");
+
+  let isAdminLogged = JSON.parse(localStorage.getItem("isAdminLogged")) || false; 
+
+  
+  if(isAdminLogged) {
+    dashboard.style.display = "flexbox";
+    loginPage.style.display = "none";
+    return;
+  }
+  const username = "ibrahim";
+  const password = "ibrahim123";
+
   dashboard.style.display = "none";
+
+  loginBtn.addEventListener("click", () => {
+    if (
+      usernameInput.value === username &&
+      passInput.value === password
+    ) {
+      dashboard.style.display = "block";
+      loginPage.style.display = "none";
+      isAdminLogged = true;
+      localStorage.setItem("isAdminLogged", JSON.stringify(isAdminLogged));
+      location.reload();
+    } else {
+      alert("Incorrect inputs");
+      usernameInput.value = "";
+      passInput.value = "";
+    }
+  });
 }
+
+adminLogin();
+
+function logout() {
+  const logouBtn = document.querySelector(".logout");
+
+  logouBtn.addEventListener("click" , () => {
+    localStorage.removeItem("isAdminLogged");
+    location.reload();
+  });
+}
+
+logout();
+
 
 const ordersContainer = document.getElementById("ordersContainer");
 const titelEl = document.querySelector(".title");

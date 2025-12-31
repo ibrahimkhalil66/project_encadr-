@@ -149,3 +149,9 @@ img {
   border-top-left-radius: 1rem;
 }
 
+.logout:hover {
+  color: rgb(220, 0, 0);
+  fill: rgb(220, 0, 0);
+  transition: ease-in-out;
+}
+

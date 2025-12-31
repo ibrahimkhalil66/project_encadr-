@@ -9,6 +9,27 @@
     <link rel="stylesheet" href="admin.css" />
   </head>
   <body>
+
+  <div class="login-page">
+    <div class="login-container">
+      <div class="login-card">
+        <h2>Admin Login</h2>
+        <p class="subtitle">Access to TechZone Dashboard</p>
+          <div class="input-group">
+            <label>Username</label>
+            <input id="username" type="text" placeholder="Enter username" required>
+          </div>
+          <div class="input-group">
+            <label>Password</label>
+            <input id="pass" type="password" placeholder="Enter password" required>
+          </div>
+          <button class="login-btn">Login</button>
+      </div>
+    </div>
+  </div>
+
+
+
     <div class="dashboard">
       <div class="sidebar">
         <div class="logo-div">
@@ -60,8 +81,13 @@
             </svg>
             <p>Messages</p>
           </li>
+          <li class="logout">
+            <svg class="side-icons" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><title>logout</title><path d="M17 7L15.59 8.41L18.17 11H8V13H18.17L15.59 15.58L17 17L22 12M4 5H12V3H4C2.9 3 2 3.9 2 5V19C2 20.1 2.9 21 4 21H12V19H4V5Z" /></svg>
+            Log out
+          </li>
       
         </ul>
+        
       </div>
       <section class="home">
         <div class="home-card">
@@ -78,7 +104,7 @@
       </div>
         </div>
       </section>
-      <section class="orders" style="display: none">
+      <section class="orders">
         <h1 class="title"></h1>
         <div class="orders-container" id="ordersContainer"></div>
       </section>

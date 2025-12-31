@@ -1,3 +1,92 @@
+html, body {
+  overflow-x: hidden;
+}
+
+.dashboard {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+
+/* -------------------------------------------------------------------------- */
+/*                                 Admin Login                                */
+/* -------------------------------------------------------------------------- */
+.login-page {
+  margin: 0;
+  height: 100vh;
+  background: linear-gradient(135deg, #1e90ff, #00bcd4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+
+.login-container {
+  width: 100%;
+  max-width: 400px;
+  padding: 20px;
+}
+
+.login-card {
+  background: #fff;
+  padding: 40px;
+  border-radius: 10px;
+  text-align: center;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+
+.login-card h2 {
+  margin-bottom: 10px;
+  color: #222;
+}
+
+.subtitle {
+  font-size: 14px;
+  color: #666;
+  margin-bottom: 30px;
+}
+
+.input-group {
+  text-align: left;
+  margin-bottom: 20px;
+}
+
+.input-group label {
+  font-size: 14px;
+  color: #333;
+}
+
+.input-group input {
+  width: 100%;
+  padding: 10px;
+  margin-top: 6px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+.input-group input:focus {
+  outline: none;
+  border-color: #1e90ff;
+}
+
+.login-btn {
+  width: 100%;
+  padding: 12px;
+  border: none;
+  background: #1e90ff;
+  color: #fff;
+  font-size: 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.login-btn:hover {
+  background: #187bcd;
+}
+
+
 /* -------------------------------- Home Page ------------------------------- */
 .home {
   min-height: 100vh;
@@ -74,6 +163,7 @@
   margin-top: 3rem;
 
 }
+
 .title {
   text-align: center;
   color: #333;
@@ -82,21 +172,22 @@
 
 .orders-container {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   max-width: 900px;
   margin: auto;
   gap: 1rem;
 }
+
 
 .order-card {
   background: #fff;
   padding: 20px;
   margin-bottom: 15px;
   border-radius: 10px;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-   display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .order-card h3 {
@@ -112,21 +203,27 @@
   padding: 10px 0;
 }
 
-.download-btn , .delete-order , .remove-btn {
+.download-btn,
+.delete-order,
+.remove-btn {
   color: white;
   padding: 8px 15px;
   border: none;
   border-radius: 6px;
   cursor: pointer;
 }
+
 .download-btn {
   background: #00aaff;
 }
-.delete-order, .remove-btn {
+
+.delete-order,
+.remove-btn {
   background: red;
 }
 
-.delete-order:hover , .remove-btn:hover {
+.delete-order:hover,
+.remove-btn:hover {
   background: rgb(220, 0, 0);
 }
 
@@ -139,8 +236,9 @@
 /*                              Messages Section                              */
 /* -------------------------------------------------------------------------- */
 .messages {
-   display: none;
+  display: none;
 }
+
 .messages-container {
   padding: 20px;
   min-height: 100vh;
@@ -192,8 +290,3 @@
   justify-self: center;
   margin-bottom: 2rem;
 }
-
-
-
-
-
