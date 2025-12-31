@@ -27,7 +27,7 @@ submitBtn.addEventListener("click", (e) => {
         name,
         email,
         comment,
-        date: new Date().toISOString()
+        date: new Date().toLocaleString()
     };
 
     stored.push(newEntry);
